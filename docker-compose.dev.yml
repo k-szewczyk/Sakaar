@@ -1,13 +1,5 @@
-version: '3.5'
+version: "3.5"
 services:
-  db:
-    env_file:
-      - ./.env
-    image: postgres:11
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    restart: always
-
   backend:
     build: ./backend
     image: sakaar-backend
@@ -19,17 +11,6 @@ services:
              && python manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
-    depends_on:
-      - db
+    volumes:
+      - ./backend:/backend:cached
     restart: always
-
-
-  nginx:
-    build: ./nginx
-    ports:
-      - 1332:80
-    depends_on:
-      - backend
-
-volumes:
-  postgres-data:
