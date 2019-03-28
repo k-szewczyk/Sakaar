@@ -25,7 +25,7 @@ class Armor(Model):
 
 
 class Hero(Model):
-    name = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     race = models.ForeignKey(Race, on_delete=models.SET_DEFAULT)
     fraction = models.ForeignKey(Fraction, on_delete=models.SET_DEFAULT)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
