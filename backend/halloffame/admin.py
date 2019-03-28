@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Hero, Race, Fraction, Guild
 
-# Register your models here.
+admin.site.register(Hero)
+admin.site.register(Race)
+admin.site.register(Fraction)
+admin.site.register(Guild)
