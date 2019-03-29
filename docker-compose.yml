@@ -4,13 +4,15 @@ services:
     env_file:
       - ./.env
     image: postgres:11
+    container_name: postgres_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
     restart: always
 
   backend:
     build: ./backend
-    image: sakaar-backend
+    image: sakaar_backend
+    container_name: sakaar_backend
     env_file:
       - ./.env
     command: bash -c "python manage.py migrate
@@ -23,6 +25,7 @@ services:
 
   nginx:
     build: ./nginx
+    container_name: ngnx
     ports:
       - 1332:80
     depends_on:
