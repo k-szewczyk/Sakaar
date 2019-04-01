@@ -4,18 +4,18 @@ services:
     env_file:
       - ./.env
     image: postgres:11
+    container_name: postgres_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
     restart: always
 
   backend:
     build: ./backend
-    image: sakaar-backend
+    image: sakaar_backend
+    container_name: sakaar_backend
     env_file:
       - ./.env
-    command: bash -c "chmod +x wait_for_databases.sh
-             && ./wait_for_databases.sh
-             && python manage.py migrate
+    command: bash -c "python manage.py migrate
              && python manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
@@ -23,9 +23,9 @@ services:
       - db
     restart: always
 
-
   nginx:
     build: ./nginx
+    container_name: ngnx
     ports:
       - 1332:80
     depends_on:
