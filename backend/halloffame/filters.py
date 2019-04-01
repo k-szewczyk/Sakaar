@@ -8,4 +8,4 @@ class HeroFilterSet(FilterSet):
 
     class Meta:
         model = Hero
-        fields = ('level', 'race', 'fraction', 'guild', 'user_name', 'is_alive')
+        fields = ('level', 'race', 'fraction', 'guild', 'user_name')

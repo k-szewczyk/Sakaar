@@ -8,7 +8,8 @@ class HeroSerializer(ModelSerializer):
 
     class Meta:
         model = Hero
-        fields = ('user_name', 'race', 'fraction', 'guild', 'level', 'is_alive')
+        fields = ('user_name', 'race', 'fraction', 'guild', 'level',
+                  'death_date', 'battles_won', 'battles_lost', 'death_date')
 
 
 class BattleSerializer(ModelSerializer):
