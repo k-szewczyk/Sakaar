@@ -1,0 +1,35 @@
+version: '3.5'
+services:
+  db:
+    env_file:
+      - ./.env
+    image: postgres:11
+    container_name: postgres_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: always
+
+  backend:
+    build: ./backend
+    image: sakaar_backend
+    container_name: sakaar_backend
+    env_file:
+      - ./.env
+    command: bash -c "python manage.py migrate
+             && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    restart: always
+
+  nginx:
+    build: ./nginx
+    container_name: ngnx
+    ports:
+      - 1332:80
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:
