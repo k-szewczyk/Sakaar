@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
-from .models import Hero, Battle
+from .models import Hero
 
 
 class HeroSerializer(ModelSerializer):
@@ -11,8 +11,3 @@ class HeroSerializer(ModelSerializer):
         fields = ('user_name', 'race', 'fraction', 'guild', 'level',
                   'death_date', 'battles_won', 'battles_lost', 'death_date')
 
-
-class BattleSerializer(ModelSerializer):
-    class Meta:
-        model = Battle
-        fields = ('winner', 'looser', 'date', 'looser_died')

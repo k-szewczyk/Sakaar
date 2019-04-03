@@ -1,5 +1,6 @@
 from django_filters import FilterSet
 from django_filters import filters
+
 from .models import Hero
 
 
@@ -8,4 +9,4 @@ class HeroFilterSet(FilterSet):
 
     class Meta:
         model = Hero
-        fields = ('level', 'race', 'fraction', 'guild', 'user_name')
+        fields = ('level', 'race', 'guild', 'user_name')
