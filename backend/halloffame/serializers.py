@@ -5,10 +5,10 @@ from .models import Hero
 
 class HeroSerializer(serializers.ModelSerializer):
     user_name = serializers.CharField(source='user', read_only=True)
-    is_alive = serializers.BooleanField()
-    battles_won = serializers.IntegerField()
-    battles_lost = serializers.IntegerField()
-    last_battle_date = serializers.DateTimeField()
+    is_alive = serializers.BooleanField(read_only=True)
+    battles_won = serializers.IntegerField(read_only=True)
+    battles_lost = serializers.IntegerField(read_only=True)
+    last_battle_date = serializers.DateTimeField(read_only=True)
 
     class Meta:
         model = Hero
