@@ -5,15 +5,15 @@ from django.db import models
 class HeroSet(models.QuerySet):
     def get_annotations(self):
         return self.annotate(
-            is_alive=~models.Exists(Hero.objects.filter(pk=models.OuterRef('pk'), loosed_battles__is_looser_dead=True)),
-            battles_lost=models.Count('loosed_battles'),
-            battles_won=models.Count('battles') - models.Count('loosed_battles'),
+            is_alive=~models.Exists(Hero.objects.filter(pk=models.OuterRef('pk'), lost_battles__is_looser_dead=True)),
+            battles_lost=models.Count('lost_battles'),
+            battles_won=models.Count('battles'),                #TODO battle counter is not working
             last_battle_date=models.Max('battles__date'))
 
 
 class Race(models.Model):
     name = models.CharField(max_length=25)
-    can_fight_with = models.ManyToManyField("Race", blank=True, related_name='can_fight')
+    can_fight_with = models.ManyToManyField("self")
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Guild(models.Model):
 
 class Hero(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    race = models.ForeignKey(Race, default=0, on_delete=models.SET_DEFAULT)
+    race = models.ForeignKey(Race, default=0, on_delete=models.CASCADE)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
 
     hit_points = models.PositiveIntegerField(default=100)
