@@ -2,6 +2,15 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+class HeroSet(models.QuerySet):
+    def get_annotations(self):
+        return self.annotate(
+            is_alive=~models.Exists(Hero.objects.filter(pk=models.OuterRef('pk'), loosed_battles__is_looser_dead=True)),
+            battles_lost=models.Count('loosed_battles'),
+            battles_won=models.Count('battles') - models.Count('loosed_battles'),
+            last_battle_date=models.Max('battles__date'))
+
+
 class Race(models.Model):
     name = models.CharField(max_length=25)
     can_fight_with = models.ManyToManyField("Race", blank=True, related_name='can_fight')
@@ -28,18 +37,7 @@ class Hero(models.Model):
     atk_points = models.IntegerField(default=1)
     def_points = models.PositiveIntegerField(default=1)
 
-    @property
-    def death_date(self):
-        if self.loosed_battles.filter(is_looser_dead=True).exists():
-            return self.loosed_battles.filter(is_looser_dead=True).first().date
-
-    @property
-    def battles_lost(self):
-        return self.loosed_battles.count()
-
-    @property
-    def battles_won(self):
-        return self.battles.count() - self.loosed_battles.count()
+    objects = HeroSet.as_manager()
 
     def __str__(self):
         return self.user.username
