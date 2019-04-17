@@ -1,0 +1,5 @@
+version: "3.5"
+services:
+  backend:
+    volumes:
+      - ./backend:/backend:cached
