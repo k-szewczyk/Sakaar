@@ -40,4 +40,4 @@ class Hero(models.Model):
     objects = HeroSet.as_manager()
 
     def __str__(self):
-        return self.user.username
+        return self.id.username

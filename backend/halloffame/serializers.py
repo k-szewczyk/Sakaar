@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from django.core.exceptions import PermissionDenied
+from django.core.exceptions import ValidationError
 
 from .models import Hero
 
@@ -20,10 +20,4 @@ class HeroSerializer(serializers.ModelSerializer):
         if attrs['id'] == user:
             return attrs
 
-        else:
-            raise PermissionDenied()
-
-    def update(self, instance, validated_data):
-        instance.guild = validated_data.get('guild', instance.guild)
-
-        return instance
+        raise ValidationError("You don't have permissions to do that.")

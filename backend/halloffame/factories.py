@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 
 
 class GuildFactory(factory.DjangoModelFactory):
-    id = factory.Faker('random_number')
     name = factory.Faker('word')
 
     class Meta:
@@ -13,8 +12,24 @@ class GuildFactory(factory.DjangoModelFactory):
 
 
 class RaceFactory(factory.DjangoModelFactory):
-    id = factory.Faker('random_number')
     name = factory.Faker('word')
 
     class Meta:
         model = models.Race
+
+
+class UserFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = User
+
+    username = factory.Faker('word')
+    password = factory.Faker('password')
+
+
+class HeroFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = models.Hero
+
+    id = factory.SubFactory(UserFactory)
+    race = factory.SubFactory(RaceFactory)
+    guild = factory.SubFactory(GuildFactory)
