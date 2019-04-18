@@ -27,7 +27,7 @@ class Guild(models.Model):
 
 
 class Hero(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    id = models.OneToOneField(User, to_field='id', primary_key=True, on_delete=models.CASCADE)
     race = models.ForeignKey(Race, default=0, on_delete=models.CASCADE)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
 

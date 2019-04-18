@@ -11,6 +11,7 @@ class Battle(models.Model):
     def __str__(self):
         return f'{self.attendees.all().first()} vs {self.attendees.all().last()}'
 
+
 class Round(models.Model):
     battle = models.ForeignKey(Battle, related_name='round', on_delete=models.CASCADE)
     attacker = models.ForeignKey('halloffame.Hero', related_name='battle_log_attacker', null=True,

@@ -7,7 +7,7 @@ from . import views
 schema_view = get_swagger_view(title='Sakaar')
 
 router = routers.DefaultRouter()
-router.register(r'heroes', views.HeroViewSet)
+router.register(r'heroes', views.HeroViewSet, basename='hero')
 
 urlpatterns = [
     path('', schema_view),
