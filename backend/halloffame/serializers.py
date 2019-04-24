@@ -13,11 +13,11 @@ class HeroSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hero
-        fields = ('id', 'race', 'guild', 'level', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
+        fields = ('user', 'race', 'guild', 'level', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
 
     def validate(self, attrs):
         user = self.context['request'].user
-        if attrs['id'] == user:
+        if attrs['user'] == user:
             return attrs
 
         raise ValidationError("You don't have permissions to do that.")

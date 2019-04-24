@@ -30,6 +30,6 @@ class HeroFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = models.Hero
 
-    id = factory.SubFactory(UserFactory)
+    user = factory.SubFactory(UserFactory)
     race = factory.SubFactory(RaceFactory)
     guild = factory.SubFactory(GuildFactory)

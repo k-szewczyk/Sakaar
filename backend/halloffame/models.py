@@ -27,7 +27,7 @@ class Guild(models.Model):
 
 
 class Hero(models.Model):
-    id = models.OneToOneField(User, to_field='id', primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
     race = models.ForeignKey(Race, default=0, on_delete=models.CASCADE)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
 
@@ -40,4 +40,4 @@ class Hero(models.Model):
     objects = HeroSet.as_manager()
 
     def __str__(self):
-        return self.id.username
+        return self.user.username
