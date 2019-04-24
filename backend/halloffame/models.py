@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import F
 
 
 class HeroSet(models.QuerySet):
@@ -7,7 +8,7 @@ class HeroSet(models.QuerySet):
         return self.annotate(
             is_alive=~models.Exists(Hero.objects.filter(pk=models.OuterRef('pk'), lost_battles__is_looser_dead=True)),
             battles_lost=models.Count('lost_battles'),
-            battles_won=models.Count('battles'),                #TODO battle counter is not working
+            battles_won=models.Count(F('battles')) - models.Count(F('lost_battles')),
             last_battle_date=models.Max('battles__date'))
 
 
@@ -31,11 +32,11 @@ class Hero(models.Model):
     race = models.ForeignKey(Race, default=0, on_delete=models.CASCADE)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
 
-    hit_points = models.PositiveIntegerField(default=100)
-    level = models.PositiveIntegerField(default=1)
+    hit_points = models.PositiveSmallIntegerField(default=100)
+    level = models.PositiveSmallIntegerField(default=1)
     exp = models.PositiveIntegerField(default=0)
-    atk_points = models.IntegerField(default=1)
-    def_points = models.PositiveIntegerField(default=1)
+    atk_points = models.PositiveSmallIntegerField(default=1)
+    def_points = models.PositiveSmallIntegerField(default=1)
 
     objects = HeroSet.as_manager()
 

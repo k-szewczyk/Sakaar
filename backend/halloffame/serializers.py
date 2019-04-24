@@ -6,7 +6,6 @@ from .models import Hero
 
 class HeroSerializer(serializers.ModelSerializer):
     is_alive = serializers.BooleanField(read_only=True)
-    level = serializers.IntegerField(read_only=True)
     battles_won = serializers.IntegerField(read_only=True)
     battles_lost = serializers.IntegerField(read_only=True)
     last_battle_date = serializers.DateTimeField(read_only=True)
