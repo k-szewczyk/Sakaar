@@ -1,14 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import F
+from django.db.models import F, Count
 
 
 class HeroSet(models.QuerySet):
     def get_annotations(self):
         return self.annotate(
             is_alive=~models.Exists(Hero.objects.filter(pk=models.OuterRef('pk'), lost_battles__is_looser_dead=True)),
-            battles_lost=models.Count('lost_battles'),
-            battles_won=models.Count(F('battles')) - models.Count(F('lost_battles')),
+            battles_lost=Count('lost_battles'),
+            battles_won=Count(F('battles')) - Count(F('lost_battles')),
             last_battle_date=models.Max('battles__date'))
 
 
