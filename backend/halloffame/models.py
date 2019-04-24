@@ -29,10 +29,10 @@ class Guild(models.Model):
 
 class Hero(models.Model):
     user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
-    race = models.ForeignKey(Race, default=0, on_delete=models.CASCADE)
+    race = models.ForeignKey(Race, on_delete=models.CASCADE)
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
-
     hit_points = models.PositiveSmallIntegerField(default=100)
+
     level = models.PositiveSmallIntegerField(default=1)
     exp = models.PositiveIntegerField(default=0)
     atk_points = models.PositiveSmallIntegerField(default=1)
