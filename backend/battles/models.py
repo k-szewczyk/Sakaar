@@ -1,5 +1,5 @@
 from django.db import models
-from random import randint
+
 
 class Battle(models.Model):
     attendees = models.ManyToManyField('halloffame.Hero', related_name='battles')
