@@ -16,7 +16,7 @@ services:
     env_file:
       - ./.env
     command: bash -c "python manage.py migrate
-             && python manage.py runserver 0.0.0.0:8000"
+                   && python manage.py runserver 0.0.0.0:8000"
     ports:
       - 8000:8000
     depends_on:
@@ -25,7 +25,7 @@ services:
 
   nginx:
     build: ./nginx
-    container_name: ngnx
+    container_name: nginx
     ports:
       - 1332:80
     depends_on:
