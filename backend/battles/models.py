@@ -13,9 +13,9 @@ class Battle(models.Model):
 
 
 class Round(models.Model):
-    battle = models.ForeignKey(Battle, related_name='round', on_delete=models.CASCADE)
-    attacker = models.ForeignKey('halloffame.Hero', related_name='round_attacker', null=True,
+    battle = models.ForeignKey(Battle, related_name='rounds', on_delete=models.CASCADE)
+    attacker = models.ForeignKey('halloffame.Hero', related_name='round_attackers', null=True,
                                  on_delete=models.SET_NULL)
-    defender = models.ForeignKey('halloffame.Hero', related_name='round_defender', null=True,
+    defender = models.ForeignKey('halloffame.Hero', related_name='round_defenders', null=True,
                                  on_delete=models.SET_NULL)
     hp_dealt = models.PositiveSmallIntegerField(null=True)
