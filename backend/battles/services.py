@@ -10,10 +10,9 @@ class Fight:
         self.battle = Battle.objects.create(date=datetime.now())
         self.battle.attendees.set(self.attendees)
         self.attendees_hit_points = {attendee: attendee.hit_points for attendee in self.attendees}
-        print(self.attendees_hit_points)
 
     def battle_loop(self):
-        while any(hp > 0 for hp in self.attendees_hit_points.values()):
+        while all(hp > 0 for hp in self.attendees_hit_points.values()):
             self.create_round()
         self.battle.is_looser_dead = np.random.choice([True, False], p=self.death_probability())
 
@@ -33,7 +32,7 @@ class Fight:
         return np.random.randint(0, 21)
 
     def create_round(self):
-        if np.random.randint(0, 1):
+        if np.random.randint(0, 2):
             attacker = self.attendees[0]
             defender = self.attendees[1]
         else:
