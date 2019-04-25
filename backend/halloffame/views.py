@@ -1,9 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
 
-from .filters import HeroFilterSet
-from .models import Hero
-from .serializers import HeroSerializer
-from .permissions import IsOwnerOrReadOnly
+from halloffame.filters import HeroFilterSet
+from halloffame.models import Hero
+from halloffame.permissions import IsOwnerOrReadOnly
+from halloffame.serializers import HeroSerializer
 
 
 class HeroViewSet(ModelViewSet):

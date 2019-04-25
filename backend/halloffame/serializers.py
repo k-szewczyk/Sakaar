@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.core.exceptions import ValidationError
 
-from .models import Hero
+from halloffame.models import Hero
 
 
 class HeroSerializer(serializers.ModelSerializer):

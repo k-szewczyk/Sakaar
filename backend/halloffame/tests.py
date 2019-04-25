@@ -1,8 +1,7 @@
-from django.contrib.auth.models import User
-from halloffame.models import Hero
 from django.urls import reverse
 from rest_framework import test, status
 
+from halloffame.models import Hero
 from . import factories
 
 
