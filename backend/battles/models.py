@@ -1,5 +1,5 @@
 from django.db import models
-from random import randint, choice
+from random import randint
 
 class Battle(models.Model):
     attendees = models.ManyToManyField('halloffame.Hero', related_name='battles')
@@ -9,10 +9,7 @@ class Battle(models.Model):
     date = models.DateTimeField()
 
     def __str__(self):
-        return f'{self.attendees.all().first()} vs {self.attendees.all().last()}'
-
-    def chose_attacker(self):
-        pass
+        return f'{self.attendees.first()} vs {self.attendees.last()}'
 
 
 class Round(models.Model):
@@ -21,14 +18,4 @@ class Round(models.Model):
                                  on_delete=models.SET_NULL)
     defender = models.ForeignKey('halloffame.Hero', related_name='round_defender', null=True,
                                  on_delete=models.SET_NULL)
-    hp_dealt = models.PositiveSmallIntegerField()
-
-    def calculate_damage(self):
-        difference = self.attacker.atk_points - self.defender.def_points
-        if difference > 0:
-            self.hp_dealt = randint(difference, 21 + difference)
-        elif difference < 0:
-            self.hp_dealt = randint(0, 21 + difference)
-        else:
-            self.hp_dealt = randint(0, 21)
-
+    hp_dealt = models.PositiveSmallIntegerField(null=True)
