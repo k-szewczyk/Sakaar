@@ -32,9 +32,8 @@ class Fight:
         difference = attacker.atk_points - defender.def_points
         if difference > 0:
             return np.random.randint(difference, 21 + difference)
-        elif difference < 0:
+        else:
             return np.random.randint(0, 21 + difference)
-        return np.random.randint(0, 21)
 
     def create_round(self):
         attacker, defender = self.attendees[::np.random.choice([1, -1])]
