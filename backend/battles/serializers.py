@@ -1,18 +1,24 @@
 from rest_framework import serializers
-from django.core.exceptions import ValidationError
+from battles.services import Fight
 
 from battles.models import Battle, Round
 
 
-class BattleSerializer(serializers.ModelSerializer):
+class RoundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Round
+        fields = ('attacker', 'defender', 'hp_dealt')
 
+
+class BattleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Battle
-        fields = ('attendees', 'looser', 'is_looser_dead', 'rounds')
+        fields = ('attendees', 'looser', 'is_looser_dead', 'rounds', 'date')
+        read_only_fields = ('looser', 'is_looser_dead', 'rounds', 'date')
 
-    def validate(self, attrs):
-        user = self.context['request'].user
-        if attrs['user'] == user:
-            return attrs
+    def create(self, validated_data):
+        fight = Fight(validated_data['attendees'])
+        fight.battle_loop()
+        return fight.battle
 
-        raise ValidationError("You don't have permissions to do that.")
+
