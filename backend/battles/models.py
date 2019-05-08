@@ -18,4 +18,4 @@ class Round(models.Model):
                                  on_delete=models.SET_NULL)
     defender = models.ForeignKey('halloffame.Hero', related_name='round_defenders', null=True,
                                  on_delete=models.SET_NULL)
-    hp_dealt = models.PositiveSmallIntegerField(null=True)
+    hp_dealt = models.PositiveSmallIntegerField(default=0)

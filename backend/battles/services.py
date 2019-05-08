@@ -1,6 +1,6 @@
 import typing
 from datetime import datetime
-
+from django.utils import timezone
 import numpy as np
 
 from battles.models import Battle, Round
@@ -9,7 +9,7 @@ from battles.models import Battle, Round
 class Fight:
     def __init__(self, attendees: typing.List):
         self.attendees = attendees
-        self.battle = Battle.objects.create(date=datetime.now())
+        self.battle = Battle.objects.create(date=timezone.now())
         self.battle.attendees.set(self.attendees)
         self.attendees_hit_points = {attendee: attendee.hit_points for attendee in self.attendees}
         if self.attendees[0].race == self.attendees[1].race or self.attendees[0].guild == self.attendees[1].guild:
