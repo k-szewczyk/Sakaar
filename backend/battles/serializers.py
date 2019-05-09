@@ -1,7 +1,10 @@
+from django.db.models import Q
 from rest_framework import serializers
-from battles.services import Fight
 from rest_framework.serializers import ValidationError
+
 from battles.models import Battle, Round
+from battles.services import Fight
+from halloffame.models import Hero
 
 
 class RoundSerializer(serializers.ModelSerializer):
@@ -23,6 +26,11 @@ class BattleSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         attendees = attrs['attendees']
+        annotated_attendees = Hero.objects.get_annotations().filter(Q(user=attendees[0]) | Q(user=attendees[1]))
+        for attendee in annotated_attendees:
+            if not attendee.is_alive:
+                raise ValidationError(f'Couldn\'t create fight player {attendee} is dead')
+
         if len(Battle.objects.filter(attendees__user=attendees[0]).filter(attendees__user=attendees[1])) > 0:
             raise ValidationError('Battle with those attendees already exists')
         return attrs
