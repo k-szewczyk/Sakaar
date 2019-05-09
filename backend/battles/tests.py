@@ -1,7 +1,8 @@
 from django.test import TestCase
+
+from battles.services import Fight
 from halloffame.factories import HeroFactory
 from halloffame.models import Hero
-from battles.services import Fight
 
 
 class BattleSystemTest(TestCase):

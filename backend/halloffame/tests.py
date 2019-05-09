@@ -2,7 +2,7 @@ from rest_framework import test, status
 from rest_framework.reverse import reverse
 
 from halloffame.models import Hero
-from . import factories
+from halloffame import factories
 
 
 class HallOfFamePermissionsTestCase(test.APITestCase):
