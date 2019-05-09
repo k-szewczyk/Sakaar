@@ -1,8 +1,8 @@
-from django.urls import reverse
 from rest_framework import test, status
+from rest_framework.reverse import reverse
 
 from halloffame.models import Hero
-from . import factories
+from halloffame import factories
 
 
 class HallOfFamePermissionsTestCase(test.APITestCase):
@@ -16,7 +16,9 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
 
     def setUp(self):
         self.user1 = factories.UserFactory()
+        self.user1_url= reverse("hero-detail", args=(self.user1.id,))
         self.user2 = factories.UserFactory()
+        self.user2_url = reverse("hero-detail", args=(self.user2.id,))
         self.client.force_login(self.user1)
 
     def test_create_new_hero(self):
@@ -40,20 +42,18 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
 
     def test_delete_someone_elses_hero(self):
         factories.HeroFactory(user=self.user2)
-        response = self.client.delete(self.hero_list_url + f'{self.user2.id}/')
+        response = self.client.delete(self.user2_url)
 
         self.assertEqual(Hero.objects.count(), 1)
 
     def test_user_can_change_guild(self):
         factories.HeroFactory(user=self.user1)
-        response = self.client.patch(self.hero_list_url + f'{self.user1.id}/', {'user': self.user1.id,
-                                                                                'guild': self.guild2.id})
+        response = self.client.patch(self.user1_url, {'user': self.user1.id, 'guild': self.guild2.id})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_user_cant_change_someone_elses_guild(self):
         factories.HeroFactory(user=self.user2)
-        response = self.client.patch(self.hero_list_url + f'{self.user2.id}/', {'user': self.user2.id,
-                                                                                'guild': self.guild2.id})
+        response = self.client.patch(self.user2_url, {'user': self.user2.id, 'guild': self.guild2.id})
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)

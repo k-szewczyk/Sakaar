@@ -1,7 +1,7 @@
 import factory
+from django.contrib.auth.models import User
 
 from halloffame import models
-from django.contrib.auth.models import User
 
 
 class GuildFactory(factory.DjangoModelFactory):

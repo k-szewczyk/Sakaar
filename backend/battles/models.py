@@ -9,13 +9,13 @@ class Battle(models.Model):
     date = models.DateTimeField()
 
     def __str__(self):
-        return f'{self.attendees.all().first()} vs {self.attendees.all().last()}'
+        return f'{self.attendees.first()} vs {self.attendees.last()}'
 
 
 class Round(models.Model):
-    battle = models.ForeignKey(Battle, related_name='round', on_delete=models.CASCADE)
-    attacker = models.ForeignKey('halloffame.Hero', related_name='battle_log_attacker', null=True,
+    battle = models.ForeignKey(Battle, related_name='rounds', on_delete=models.CASCADE)
+    attacker = models.ForeignKey('halloffame.Hero', related_name='round_attackers', null=True,
                                  on_delete=models.SET_NULL)
-    defender = models.ForeignKey('halloffame.Hero', related_name='battle_log_defender', null=True,
+    defender = models.ForeignKey('halloffame.Hero', related_name='round_defenders', null=True,
                                  on_delete=models.SET_NULL)
-    hp_dealt = models.PositiveSmallIntegerField()
+    hp_dealt = models.PositiveSmallIntegerField(default=0)
