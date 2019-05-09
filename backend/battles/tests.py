@@ -18,6 +18,8 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
         self.hero1_url = reverse("hero-detail", args=(self.hero1.user_id,))
         self.hero2 = factories.HeroFactory()
         self.hero2_url = reverse("hero-detail", args=(self.hero2.user_id,))
+        self.hero1.race.can_fight_with.set([self.hero2.race])
+        self.hero2.race.can_fight_with.set([self.hero1.race])
         self.client.force_login(self.grand_master)
 
     def test_gm_can_create_battle(self):
@@ -40,6 +42,8 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
 
     def test_user_can_not_fight_with_dead_hero(self):
         dead_hero = factories.HeroFactory()
+        dead_hero.race = self.hero1.race
+        dead_hero.save()
 
         battle = Battle.objects.create(looser=dead_hero, is_looser_dead=True, date=timezone.now())
         battle.attendees.set([dead_hero, self.hero1])
@@ -48,3 +52,11 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(Battle.objects.count(), 1)
+
+    def test_can_not_fight_with_races_other_than_specified(self):
+        hero3 = factories.HeroFactory()
+
+        response = self.client.post(self.battle_list_url, {'attendees': [hero3.user_id, self.hero2.user_id]})
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(Battle.objects.count(), 0)
