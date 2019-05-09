@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
+from django.test import TestCase
 from django.utils import timezone
 from rest_framework import test, status
 from rest_framework.reverse import reverse
-from django.test import TestCase
 
 from battles.models import Battle
 from battles.services import Fight

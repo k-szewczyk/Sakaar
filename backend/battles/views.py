@@ -6,7 +6,7 @@ from battles.serializers import BattleSerializer, RoundSerializer
 
 
 class BattleViewSet(ModelViewSet):
-    permission_classes = (IsStaffOrReadOnly, )
+    permission_classes = (IsStaffOrReadOnly,)
     queryset = Battle.objects.all()
     serializer_class = BattleSerializer
     http_method_names = ['get', 'post', 'head']
