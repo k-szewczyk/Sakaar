@@ -33,7 +33,7 @@ class BattleSerializer(serializers.ModelSerializer):
 
         races = [hero.race for hero in annotated_attendees]
         if not races[0] in races[1].can_fight_with.all():
-            raise ValidationError(f'Heroes of races {races[0]} and {races[1]}')
+            raise ValidationError(f'These two races can\'t fight with each other')
 
         if len(Battle.objects.filter(attendees__user=attendees[0]).filter(attendees__user=attendees[1])) > 0:
             raise ValidationError('Battle with those attendees already exists')
