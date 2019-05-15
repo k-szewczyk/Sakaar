@@ -14,7 +14,7 @@ class HeroSet(models.QuerySet):
 
 class Race(models.Model):
     name = models.CharField(max_length=25)
-    can_fight_with = models.ManyToManyField("self")
+    can_fight_with = models.ManyToManyField('self')
 
     def __str__(self):
         return self.name

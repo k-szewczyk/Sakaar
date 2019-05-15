@@ -6,7 +6,8 @@ from .models import Hero
 
 class HeroFilterSet(FilterSet):
     user_name = filters.CharFilter(field_name='user__username')
+    is_alive = filters.BooleanFilter()
 
     class Meta:
         model = Hero
-        fields = ('level', 'race', 'guild', 'user_name')
+        fields = ('user_name', 'level', 'race', 'guild', 'is_alive')
