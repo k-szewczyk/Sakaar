@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 from halloffame.models import Hero
@@ -9,6 +10,7 @@ class HeroSerializer(serializers.ModelSerializer):
     battles_won = serializers.IntegerField(read_only=True)
     battles_lost = serializers.IntegerField(read_only=True)
     last_battle_date = serializers.DateTimeField(read_only=True)
+    level = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Hero
@@ -20,3 +22,10 @@ class HeroSerializer(serializers.ModelSerializer):
             return attrs
 
         raise ValidationError("You don't have permissions to do that.")
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'password', 'email')
+
