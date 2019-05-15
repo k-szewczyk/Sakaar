@@ -29,12 +29,12 @@ class BattleSerializer(serializers.ModelSerializer):
         annotated_attendees = Hero.objects.get_annotations().filter(Q(user=attendees[0]) | Q(user=attendees[1]))
         for attendee in annotated_attendees:
             if not attendee.is_alive:
-                raise ValidationError(f'Couldn\'t create fight player {attendee} is dead')
+                raise ValidationError(f'Couldn\'t create fight hero {attendee} is dead')
 
         races = [hero.race for hero in annotated_attendees]
         if not races[0] in races[1].can_fight_with.all():
             raise ValidationError(f'These two races can\'t fight with each other')
 
-        if len(Battle.objects.filter(attendees__user=attendees[0]).filter(attendees__user=attendees[1])) > 0:
+        if Battle.objects.filter(attendees__user=attendees[0]).filter(attendees__user=attendees[1]).exists():
             raise ValidationError('Battle with those attendees already exists')
         return attrs
