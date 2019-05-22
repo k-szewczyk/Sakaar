@@ -19,4 +19,3 @@ dev:
 .PHONY: backend-bash
 backend-bash:
 	docker exec -it $(backend-container) bash
-

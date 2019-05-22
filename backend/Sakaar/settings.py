@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework',
     'django_filters',
+    'rest_framework_nested',
     'halloffame',
     'battles',
 ]
