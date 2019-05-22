@@ -1,8 +1,8 @@
-from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from rest_framework import serializers
 
-from halloffame.models import Hero
+from halloffame.models import Hero, Guild
 
 
 class HeroSerializer(serializers.ModelSerializer):
@@ -29,3 +29,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'password', 'email')
 
+
+class GuildSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Guild
+        fields = ('name', 'heroes')
