@@ -11,7 +11,7 @@ from halloffame.factories import HeroFactory
 from halloffame.models import Hero
 
 
-class HallOfFamePermissionsTestCase(test.APITestCase):
+class BattlesPermissionsTestCase(test.APITestCase):
     @classmethod
     def setUpTestData(cls):
         cls.grand_master = User.objects.create(username='admin', password='admin', is_staff=True)
@@ -99,4 +99,4 @@ class BattleSystemTest(TestCase):
         won_counter = queryset.first().battles_won + queryset.last().battles_won
         lost_counter = queryset.first().battles_lost + queryset.last().battles_lost
 
-        self.assertEqual(True, (won_counter == 1) & (lost_counter == 1))
+        self.assertTrue((won_counter == 1) & (lost_counter == 1))
