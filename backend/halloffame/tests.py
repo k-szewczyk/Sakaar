@@ -24,28 +24,32 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
         self.client.force_login(self.user1)
 
     def test_create_new_hero(self):
-        self.client.post(self.hero_list_url,
+        response = self.client.post(self.hero_list_url,
                          {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Hero.objects.count(), 1)
 
     def test_user_can_not_create_second_hero(self):
         HeroFactory(user=self.user1)
-        self.client.post(self.hero_list_url,
+        response = self.client.post(self.hero_list_url,
                          {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(Hero.objects.count(), 1)
 
     def test_create_new_hero_assigned_to_someone_else(self):
-        self.client.post(self.hero_list_url,
+        response = self.client.post(self.hero_list_url,
                          {'user': self.user2.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(Hero.objects.count(), 0)
 
     def test_delete_someone_elses_hero(self):
         HeroFactory(user=self.user2)
-        self.client.delete(self.user2_url)
+        response = self.client.delete(self.user2_url)
 
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(Hero.objects.count(), 1)
 
     def test_user_can_change_guild(self):
@@ -85,22 +89,26 @@ class HallOfFameFilteringTestCase(test.APITestCase):
         cls.battle3.save()
 
     def test_alive_heroes_filtering(self):
-        response = self.client.get(self.hero_list_url + '?is_alive=True')
+        response = self.client.get(self.hero_list_url, kwargs={'is_alive': True})
 
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 2)
 
     def test_dead_heroes_filtering(self):
-        response = self.client.get(self.hero_list_url + '?is_alive=False')
+        response = self.client.get(self.hero_list_url, kwargs={'is_alive': False})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 1)
 
     def test_available_opponents_for_specified_hero_filtering(self):
         self.hero1.race.can_fight_with.set([self.hero1.race, self.hero2.race, self.hero3.race])
         self.hero1.race.save()
-        hero4 = Hero.objects.create(user=UserFactory(), race=self.hero1.race)
+        hero4 = HeroFactory(race=self.hero1.race)
         new_battle = Battle.objects.create(date=timezone.now())
         new_battle.attendees.set([hero4, self.hero3])
         new_battle.save()
 
-        response = self.client.get(self.hero_list_url + f'?find_opponents_for={hero4.user_id}')
+        response = self.client.get(self.hero_list_url, kwargs={'find_opponents_for': hero4.user_id})
 
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['count'], 2)

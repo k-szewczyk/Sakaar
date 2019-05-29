@@ -13,6 +13,7 @@ Rules are simple:
 
  - python 3.7
  - docker, and docker-compose
+ - Make
  
 ###Installing
 To start this app just simply type

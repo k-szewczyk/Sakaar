@@ -1,7 +1,7 @@
 import typing
-from datetime import datetime
-from django.utils import timezone
+
 import numpy as np
+from django.utils import timezone
 
 from battles.models import Battle, Round
 
@@ -25,7 +25,7 @@ class Fight:
                               if self.attendees_hit_points[attendee] <= 0][0]
 
         self.battle.is_looser_dead = np.random.choice([True, False],
-                                                      p=[self.death_probability, 1-self.death_probability])
+                                                      p=[self.death_probability, 1 - self.death_probability])
         self.battle.save()
 
     def calculate_damage(self, attacker, defender):

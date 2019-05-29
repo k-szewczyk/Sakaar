@@ -12,7 +12,7 @@ class HeroSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hero
-        fields = ('user', 'race', 'guild', 'level', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
+        fields = ('user', 'race', 'guild', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
 
     def validate(self, attrs):
         user = self.context['request'].user

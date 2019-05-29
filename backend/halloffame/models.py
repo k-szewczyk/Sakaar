@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import F, Count
 
+from battles.models import Battle
+
 
 class HeroSet(models.QuerySet):
     def get_annotations(self):
@@ -14,7 +16,7 @@ class HeroSet(models.QuerySet):
 
 class Race(models.Model):
     name = models.CharField(max_length=25)
-    can_fight_with = models.ManyToManyField('self')
+    can_fight_with = models.ManyToManyField('self', default='self')
 
     def __str__(self):
         return self.name
@@ -33,8 +35,6 @@ class Hero(models.Model):
     guild = models.ForeignKey(Guild, null=True, on_delete=models.SET_NULL)
     hit_points = models.PositiveSmallIntegerField(default=100)
 
-    level = models.PositiveSmallIntegerField(default=1)
-    exp = models.PositiveIntegerField(default=0)
     atk_points = models.PositiveSmallIntegerField(default=1)
     def_points = models.PositiveSmallIntegerField(default=1)
 
