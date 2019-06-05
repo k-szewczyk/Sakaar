@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
+from django.contrib.auth.hashers import make_password
 
 from halloffame.models import Hero, Guild
 
@@ -25,9 +26,17 @@ class HeroSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(style={'input_type': 'password', 'placeholder': 'Password'},
+                                     write_only=True)
+
     class Meta:
         model = User
         fields = ('username', 'password', 'email')
+
+    def create(self, validated_data):
+        return User.objects.create(username=validated_data['username'],
+                                   email=validated_data['email'],
+                                   password=make_password(validated_data['password']))
 
 
 class GuildSerializer(serializers.ModelSerializer):
