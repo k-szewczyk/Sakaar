@@ -15,9 +15,8 @@ class HeroFilterSet(FilterSet):
         fields = ('user_name', 'race', 'guild', 'is_alive', 'find_opponents_for')
 
     def get_available_opponents(self, queryset, name, value: Hero):
-        hero_1 = value
         available_heroes = Hero.objects.get_annotations().filter(
-            is_alive=True, race__in=hero_1.race.can_fight_with.all()).exclude(user=hero_1.user).exclude(
-            battles__in=hero_1.battles.all()
+            is_alive=True, race__in=value.race.can_fight_with.all()).exclude(user=value.user).exclude(
+            battles__in=value.battles.all()
         )
         return available_heroes

@@ -25,7 +25,7 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
 
     def test_create_new_hero(self):
         response = self.client.post(self.hero_list_url,
-                         {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
+                                    {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Hero.objects.count(), 1)
@@ -33,14 +33,14 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
     def test_user_can_not_create_second_hero(self):
         HeroFactory(user=self.user1)
         response = self.client.post(self.hero_list_url,
-                         {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
+                                    {'user': self.user1.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(Hero.objects.count(), 1)
 
     def test_create_new_hero_assigned_to_someone_else(self):
         response = self.client.post(self.hero_list_url,
-                         {'user': self.user2.id, 'race': self.race1.id, 'guild': self.guild1.id})
+                                    {'user': self.user2.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertEqual(Hero.objects.count(), 0)
