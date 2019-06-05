@@ -11,10 +11,9 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 class UserPermissions(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'POST':
+        if request.method == 'POST' or request.method == 'DELETE':
             return True
         return False
 
     def has_object_permission(self, request, view, obj):
-        return obj.user == request.user
-
+        return obj.id == request.user.id
