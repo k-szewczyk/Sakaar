@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['backend', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'battles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'django_extensions',
-    'halloffame',
-    'rest_framework_swagger',
     'rest_framework',
+    'rest_framework_swagger',
+    'halloffame',
+    'battles',
 ]
 
 MIDDLEWARE = [
