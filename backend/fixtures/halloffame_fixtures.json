@@ -1,1 +1,281 @@
-[{"model": "halloffame.race", "pk": 1, "fields": {"name": "Xenomorph", "can_fight_with": [1, 3]}}, {"model": "halloffame.race", "pk": 2, "fields": {"name": "Human", "can_fight_with": [2, 3]}}, {"model": "halloffame.race", "pk": 3, "fields": {"name": "Wookie", "can_fight_with": [1, 2, 3]}}, {"model": "halloffame.race", "pk": 4, "fields": {"name": "Hedgehog", "can_fight_with": [4, 5]}}, {"model": "halloffame.race", "pk": 5, "fields": {"name": "Ewok", "can_fight_with": [4, 5]}}, {"model": "halloffame.guild", "pk": 5, "fields": {"name": "fall"}}, {"model": "halloffame.guild", "pk": 10, "fields": {"name": "history"}}, {"model": "halloffame.guild", "pk": 11, "fields": {"name": "feel"}}, {"model": "halloffame.guild", "pk": 16, "fields": {"name": "sort"}}, {"model": "halloffame.hero", "pk": 2, "fields": {"race": 1, "guild": 10, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 3, "fields": {"race": 1, "guild": 11, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 4, "fields": {"race": 1, "guild": 16, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 5, "fields": {"race": 2, "guild": 11, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 6, "fields": {"race": 2, "guild": 10, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 7, "fields": {"race": 2, "guild": 16, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 8, "fields": {"race": 3, "guild": 5, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 9, "fields": {"race": 3, "guild": 16, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 10, "fields": {"race": 3, "guild": 16, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 11, "fields": {"race": 4, "guild": 5, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 12, "fields": {"race": 4, "guild": 10, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 13, "fields": {"race": 4, "guild": 5, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 14, "fields": {"race": 5, "guild": 16, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 15, "fields": {"race": 5, "guild": 11, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}, {"model": "halloffame.hero", "pk": 16, "fields": {"race": 5, "guild": 5, "hit_points": 100, "level": 1, "exp": 0, "atk_points": 1, "def_points": 1}}]
+[
+  {
+    "model": "halloffame.race",
+    "pk": 1,
+    "fields": {
+      "name": "Xenomorph",
+      "can_fight_with": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "halloffame.race",
+    "pk": 2,
+    "fields": {
+      "name": "Human",
+      "can_fight_with": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "halloffame.race",
+    "pk": 3,
+    "fields": {
+      "name": "Wookie",
+      "can_fight_with": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "halloffame.race",
+    "pk": 4,
+    "fields": {
+      "name": "Hedgehog",
+      "can_fight_with": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "halloffame.race",
+    "pk": 5,
+    "fields": {
+      "name": "Ewok",
+      "can_fight_with": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "halloffame.guild",
+    "pk": 5,
+    "fields": {
+      "name": "fall"
+    }
+  },
+  {
+    "model": "halloffame.guild",
+    "pk": 10,
+    "fields": {
+      "name": "history"
+    }
+  },
+  {
+    "model": "halloffame.guild",
+    "pk": 11,
+    "fields": {
+      "name": "feel"
+    }
+  },
+  {
+    "model": "halloffame.guild",
+    "pk": 16,
+    "fields": {
+      "name": "sort"
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 2,
+    "fields": {
+      "race": 1,
+      "guild": 10,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 3,
+    "fields": {
+      "race": 1,
+      "guild": 11,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 4,
+    "fields": {
+      "race": 1,
+      "guild": 16,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 5,
+    "fields": {
+      "race": 2,
+      "guild": 11,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 6,
+    "fields": {
+      "race": 2,
+      "guild": 10,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 7,
+    "fields": {
+      "race": 2,
+      "guild": 16,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 8,
+    "fields": {
+      "race": 3,
+      "guild": 5,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 9,
+    "fields": {
+      "race": 3,
+      "guild": 16,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 10,
+    "fields": {
+      "race": 3,
+      "guild": 16,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 11,
+    "fields": {
+      "race": 4,
+      "guild": 5,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 12,
+    "fields": {
+      "race": 4,
+      "guild": 10,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 13,
+    "fields": {
+      "race": 4,
+      "guild": 5,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 14,
+    "fields": {
+      "race": 5,
+      "guild": 16,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 15,
+    "fields": {
+      "race": 5,
+      "guild": 11,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  },
+  {
+    "model": "halloffame.hero",
+    "pk": 16,
+    "fields": {
+      "race": 5,
+      "guild": 5,
+      "hit_points": 100,
+      "level": 1,
+      "exp": 0,
+      "atk_points": 1,
+      "def_points": 1
+    }
+  }
+]

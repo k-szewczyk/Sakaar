@@ -1,1 +1,631 @@
-[{"model": "battles.battle", "pk": 1, "fields": {"looser": 9, "is_looser_dead": true, "date": "2019-06-06T07:44:46.834Z", "attendees": [7, 9]}}, {"model": "battles.battle", "pk": 2, "fields": {"looser": 11, "is_looser_dead": true, "date": "2019-06-06T07:44:46.889Z", "attendees": [5, 11]}}, {"model": "battles.battle", "pk": 3, "fields": {"looser": 3, "is_looser_dead": true, "date": "2019-06-06T07:44:46.955Z", "attendees": [3, 8]}}, {"model": "battles.round", "pk": 1, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 19}}, {"model": "battles.round", "pk": 2, "fields": {"battle": 1, "attacker": 9, "defender": 7, "hp_dealt": 9}}, {"model": "battles.round", "pk": 3, "fields": {"battle": 1, "attacker": 9, "defender": 7, "hp_dealt": 20}}, {"model": "battles.round", "pk": 4, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 11}}, {"model": "battles.round", "pk": 5, "fields": {"battle": 1, "attacker": 9, "defender": 7, "hp_dealt": 16}}, {"model": "battles.round", "pk": 6, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 3}}, {"model": "battles.round", "pk": 7, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 16}}, {"model": "battles.round", "pk": 8, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 17}}, {"model": "battles.round", "pk": 9, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 20}}, {"model": "battles.round", "pk": 10, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 6}}, {"model": "battles.round", "pk": 11, "fields": {"battle": 1, "attacker": 7, "defender": 9, "hp_dealt": 18}}, {"model": "battles.round", "pk": 12, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 19}}, {"model": "battles.round", "pk": 13, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 8}}, {"model": "battles.round", "pk": 14, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 2}}, {"model": "battles.round", "pk": 15, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 14}}, {"model": "battles.round", "pk": 16, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 11}}, {"model": "battles.round", "pk": 17, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 6}}, {"model": "battles.round", "pk": 18, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 4}}, {"model": "battles.round", "pk": 19, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 20}}, {"model": "battles.round", "pk": 20, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 0}}, {"model": "battles.round", "pk": 21, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 3}}, {"model": "battles.round", "pk": 22, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 7}}, {"model": "battles.round", "pk": 23, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 3}}, {"model": "battles.round", "pk": 24, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 8}}, {"model": "battles.round", "pk": 25, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 8}}, {"model": "battles.round", "pk": 26, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 0}}, {"model": "battles.round", "pk": 27, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 13}}, {"model": "battles.round", "pk": 28, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 0}}, {"model": "battles.round", "pk": 29, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 7}}, {"model": "battles.round", "pk": 30, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 3}}, {"model": "battles.round", "pk": 31, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 4}}, {"model": "battles.round", "pk": 32, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 5}}, {"model": "battles.round", "pk": 33, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 12}}, {"model": "battles.round", "pk": 34, "fields": {"battle": 2, "attacker": 11, "defender": 5, "hp_dealt": 7}}, {"model": "battles.round", "pk": 35, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 15}}, {"model": "battles.round", "pk": 36, "fields": {"battle": 2, "attacker": 5, "defender": 11, "hp_dealt": 19}}, {"model": "battles.round", "pk": 37, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 13}}, {"model": "battles.round", "pk": 38, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 4}}, {"model": "battles.round", "pk": 39, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 18}}, {"model": "battles.round", "pk": 40, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 2}}, {"model": "battles.round", "pk": 41, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 2}}, {"model": "battles.round", "pk": 42, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 20}}, {"model": "battles.round", "pk": 43, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 1}}, {"model": "battles.round", "pk": 44, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 13}}, {"model": "battles.round", "pk": 45, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 9}}, {"model": "battles.round", "pk": 46, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 0}}, {"model": "battles.round", "pk": 47, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 1}}, {"model": "battles.round", "pk": 48, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 19}}, {"model": "battles.round", "pk": 49, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 7}}, {"model": "battles.round", "pk": 50, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 1}}, {"model": "battles.round", "pk": 51, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 7}}, {"model": "battles.round", "pk": 52, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 9}}, {"model": "battles.round", "pk": 53, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 2}}, {"model": "battles.round", "pk": 54, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 10}}, {"model": "battles.round", "pk": 55, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 15}}, {"model": "battles.round", "pk": 56, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 13}}, {"model": "battles.round", "pk": 57, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 11}}, {"model": "battles.round", "pk": 58, "fields": {"battle": 3, "attacker": 3, "defender": 8, "hp_dealt": 8}}, {"model": "battles.round", "pk": 59, "fields": {"battle": 3, "attacker": 8, "defender": 3, "hp_dealt": 4}}]
+[
+  {
+    "model": "battles.battle",
+    "pk": 1,
+    "fields": {
+      "looser": 9,
+      "is_looser_dead": true,
+      "date": "2019-06-06T07:44:46.834Z",
+      "attendees": [
+        7,
+        9
+      ]
+    }
+  },
+  {
+    "model": "battles.battle",
+    "pk": 2,
+    "fields": {
+      "looser": 11,
+      "is_looser_dead": true,
+      "date": "2019-06-06T07:44:46.889Z",
+      "attendees": [
+        5,
+        11
+      ]
+    }
+  },
+  {
+    "model": "battles.battle",
+    "pk": 3,
+    "fields": {
+      "looser": 3,
+      "is_looser_dead": true,
+      "date": "2019-06-06T07:44:46.955Z",
+      "attendees": [
+        3,
+        8
+      ]
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 1,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 19
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 2,
+    "fields": {
+      "battle": 1,
+      "attacker": 9,
+      "defender": 7,
+      "hp_dealt": 9
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 3,
+    "fields": {
+      "battle": 1,
+      "attacker": 9,
+      "defender": 7,
+      "hp_dealt": 20
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 4,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 11
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 5,
+    "fields": {
+      "battle": 1,
+      "attacker": 9,
+      "defender": 7,
+      "hp_dealt": 16
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 6,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 3
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 7,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 16
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 8,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 17
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 9,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 20
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 10,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 6
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 11,
+    "fields": {
+      "battle": 1,
+      "attacker": 7,
+      "defender": 9,
+      "hp_dealt": 18
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 12,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 19
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 13,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 8
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 14,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 2
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 15,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 14
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 16,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 11
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 17,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 6
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 18,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 4
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 19,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 20
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 20,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 0
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 21,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 3
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 22,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 7
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 23,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 3
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 24,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 8
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 25,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 8
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 26,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 0
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 27,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 13
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 28,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 0
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 29,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 7
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 30,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 3
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 31,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 4
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 32,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 5
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 33,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 12
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 34,
+    "fields": {
+      "battle": 2,
+      "attacker": 11,
+      "defender": 5,
+      "hp_dealt": 7
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 35,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 15
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 36,
+    "fields": {
+      "battle": 2,
+      "attacker": 5,
+      "defender": 11,
+      "hp_dealt": 19
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 37,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 13
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 38,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 4
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 39,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 18
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 40,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 2
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 41,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 2
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 42,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 20
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 43,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 1
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 44,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 13
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 45,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 9
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 46,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 0
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 47,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 1
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 48,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 19
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 49,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 7
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 50,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 1
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 51,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 7
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 52,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 9
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 53,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 2
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 54,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 10
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 55,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 15
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 56,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 13
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 57,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 11
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 58,
+    "fields": {
+      "battle": 3,
+      "attacker": 3,
+      "defender": 8,
+      "hp_dealt": 8
+    }
+  },
+  {
+    "model": "battles.round",
+    "pk": 59,
+    "fields": {
+      "battle": 3,
+      "attacker": 8,
+      "defender": 3,
+      "hp_dealt": 4
+    }
+  }
+]
