@@ -2,6 +2,8 @@ from django_filters import FilterSet
 from django_filters import filters
 
 from halloffame.models import Hero
+from halloffame.models import Hero, Guild
+
 
 
 class HeroFilterSet(FilterSet):
@@ -20,3 +22,11 @@ class HeroFilterSet(FilterSet):
             ).exclude(user=value.user).exclude(battles__in=value.battles.all())
 
         return available_heroes
+
+        fields = ('level', 'race', 'guild', 'user_name')
+
+
+class GuildFilterSet(FilterSet):
+    class Meta:
+        model = Guild
+
