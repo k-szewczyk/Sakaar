@@ -1,8 +1,6 @@
-from django.utils import timezone
 from rest_framework import test, status
 from rest_framework.reverse import reverse
 
-from battles.models import Battle
 from battles.factories import BattleFactory
 from halloffame.factories import HeroFactory, UserFactory, RaceFactory, GuildFactory
 from halloffame.models import Hero
