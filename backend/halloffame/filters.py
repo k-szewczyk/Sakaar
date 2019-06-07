@@ -22,11 +22,3 @@ class HeroFilterSet(FilterSet):
             ).exclude(user=value.user).exclude(battles__in=value.battles.all())
 
         return available_heroes
-
-        fields = ('level', 'race', 'guild', 'user_name')
-
-
-class GuildFilterSet(FilterSet):
-    class Meta:
-        model = Guild
-

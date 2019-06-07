@@ -3,7 +3,7 @@ from rest_framework import filters
 from rest_framework.viewsets import ModelViewSet
 from django.contrib.auth.models import User
 
-from halloffame.filters import HeroFilterSet, GuildFilterSet
+from halloffame.filters import HeroFilterSet
 from halloffame.models import Hero, Guild
 from halloffame.permissions import IsOwnerOrReadOnly, UserPermissions
 from halloffame.serializers import HeroSerializer, UserSerializer, GuildSerializer
@@ -30,4 +30,3 @@ class UserViewSet(ModelViewSet):
 class GuildViewSet(ModelViewSet):
     queryset = Guild.objects.all()
     serializer_class = GuildSerializer
-    filter_class = GuildFilterSet
