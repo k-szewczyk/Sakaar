@@ -79,14 +79,12 @@ class HallOfFameFilteringTestCase(test.APITestCase):
         cls.battle3 = BattleFactory(attendees=(cls.hero2, cls.hero3), looser=cls.hero3, is_looser_dead=True)
 
     def test_alive_heroes_filtering(self):
-        alive_heroes_url = reverse('hero-list')
-        response = self.client.get(alive_heroes_url, {'is_alive': 'True'})
+        response = self.client.get(self.hero_list_url, {'is_alive': 'True'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 2)
 
     def test_dead_heroes_filtering(self):
-        alive_heroes_url = reverse('hero-list')
-        response = self.client.get(alive_heroes_url, {'is_alive': 'False'})
+        response = self.client.get(self.hero_list_url, {'is_alive': 'False'})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 1)
