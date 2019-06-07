@@ -1,7 +1,10 @@
+from django.core.exceptions import ValidationError
+from rest_framework import serializers
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from rest_framework import serializers
-from django.contrib.auth.hashers import make_password
+
 
 from halloffame.models import Hero, Guild
 
@@ -15,7 +18,7 @@ class HeroSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Hero
-        fields = ('user', 'race', 'guild', 'level', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
+        fields = ('user', 'race', 'guild', 'is_alive', 'battles_won', 'battles_lost', 'last_battle_date')
 
     def validate(self, attrs):
         user = self.context['request'].user

@@ -1,12 +1,12 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Battle(models.Model):
     attendees = models.ManyToManyField('halloffame.Hero', related_name='battles')
     looser = models.ForeignKey('halloffame.Hero', blank=True, null=True, default=None, related_name='lost_battles',
                                on_delete=models.SET_NULL)
     is_looser_dead = models.BooleanField(default=False)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f'{self.attendees.first()} vs {self.attendees.last()}'

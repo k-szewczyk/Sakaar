@@ -16,6 +16,10 @@ build-dev:
 dev:
 	$(containers-tool) $(dev-dockerfile) up
 
+.PHONY: backend-django-shell
+backend-django-shell:
+	docker exec -it $(backend-container) python manage.py shell
+
 .PHONY: backend-bash
 backend-bash:
 	docker exec -it $(backend-container) bash

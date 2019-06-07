@@ -1,3 +1,5 @@
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 from rest_framework.viewsets import ModelViewSet
 from django.contrib.auth.models import User
 
@@ -9,9 +11,11 @@ from halloffame.serializers import HeroSerializer, UserSerializer, GuildSerializ
 
 class HeroViewSet(ModelViewSet):
     permission_classes = (IsOwnerOrReadOnly,)
+    filter_backends = (filters.OrderingFilter, DjangoFilterBackend)
+    filter_class = HeroFilterSet
+    ordering_fields = ('user__username', 'battles_won', 'battles_lost')
     queryset = Hero.objects.all()
     serializer_class = HeroSerializer
-    filter_class = HeroFilterSet
 
     def get_queryset(self):
         return Hero.objects.get_annotations()
