@@ -3,6 +3,7 @@ from rest_framework import test, status
 from rest_framework.reverse import reverse
 
 from battles.models import Battle
+from battles.factories import BattleFactory
 from halloffame.factories import HeroFactory, UserFactory, RaceFactory, GuildFactory
 from halloffame.models import Hero
 
@@ -42,7 +43,7 @@ class HallOfFamePermissionsTestCase(test.APITestCase):
         response = self.client.post(self.hero_list_url,
                                     {'user': self.user2.id, 'race': self.race1.id, 'guild': self.guild1.id})
 
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(Hero.objects.count(), 0)
 
     def test_delete_someone_elses_hero(self):
@@ -73,29 +74,19 @@ class HallOfFameFilteringTestCase(test.APITestCase):
         cls.hero2 = HeroFactory()
         cls.hero3 = HeroFactory()
 
-        cls.battle1 = Battle.objects.create(date=timezone.now())
-        cls.battle1.attendees.set([cls.hero1, cls.hero2])
-        cls.battle1.looser = cls.hero1
-        cls.battle1.save()
-
-        cls.battle2 = Battle.objects.create(date=timezone.now())
-        cls.battle2.attendees.set([cls.hero1, cls.hero3])
-        cls.battle2.looser = cls.hero1
-        cls.battle2.save()
-
-        cls.battle3 = Battle.objects.create(date=timezone.now(), is_looser_dead=True)
-        cls.battle3.attendees.set([cls.hero2, cls.hero3])
-        cls.battle3.looser = cls.hero3
-        cls.battle3.save()
+        cls.battle1 = BattleFactory(attendees=(cls.hero1, cls.hero2), looser=cls.hero1, is_looser_dead=False)
+        cls.battle2 = BattleFactory(attendees=(cls.hero1, cls.hero3), looser=cls.hero1, is_looser_dead=False)
+        cls.battle3 = BattleFactory(attendees=(cls.hero2, cls.hero3), looser=cls.hero3, is_looser_dead=True)
 
     def test_alive_heroes_filtering(self):
-        response = self.client.get(self.hero_list_url, kwargs={'is_alive': True})
-
+        alive_heroes_url = reverse('hero-list')
+        response = self.client.get(alive_heroes_url, {'is_alive': 'True'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 2)
 
     def test_dead_heroes_filtering(self):
-        response = self.client.get(self.hero_list_url, kwargs={'is_alive': False})
+        alive_heroes_url = reverse('hero-list')
+        response = self.client.get(alive_heroes_url, {'is_alive': 'False'})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data['results']), 1)
@@ -104,11 +95,9 @@ class HallOfFameFilteringTestCase(test.APITestCase):
         self.hero1.race.can_fight_with.set([self.hero1.race, self.hero2.race, self.hero3.race])
         self.hero1.race.save()
         hero4 = HeroFactory(race=self.hero1.race)
-        new_battle = Battle.objects.create(date=timezone.now())
-        new_battle.attendees.set([hero4, self.hero3])
-        new_battle.save()
+        BattleFactory(attendees=(hero4, self.hero3), looser= self.hero3)
 
-        response = self.client.get(self.hero_list_url, kwargs={'find_opponents_for': hero4.user_id})
+        response = self.client.get(self.hero_list_url, {'find_opponents_for': hero4.user.id})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['count'], 2)
