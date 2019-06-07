@@ -9,13 +9,13 @@ Rules are simple:
  - Some races can't fight with another (for example hedgehogs can fight with hamsters, but can't fight with humans)
 
 
-###Prerequisites
+### Prerequisites
 
  - python 3.7
  - docker, and docker-compose
  - Make
  
-###Installing
+### Installing
 To start this app just simply type
 ```bash
 make build-dev
